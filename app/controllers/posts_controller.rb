@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :find_board, :only => [:index, :create, :edit, :update, :destroy]
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   def index
-    @posts = Post.all
+    @posts = @board.posts.all
   end
   
   # New a empty Post object
