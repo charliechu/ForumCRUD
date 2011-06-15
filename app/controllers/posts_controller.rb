@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_filter :find_board, :only => [:index, :create, :edit, :update, :destroy]
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   def index
+    # Find post by board and select to all
     @posts = @board.posts.all
   end
   
