@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_filter :find_board, :only => [:board, :show, :edit, :update, :destroy]
+  before_filter :find_board, :only => [:show, :edit, :update, :destroy]
   
   def index
     @boards = Board.all
@@ -16,6 +16,7 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to board_path(@board)
     else
+      render :action => new
       redirect_to new_board_path
     end
   end
@@ -33,7 +34,7 @@ class BoardsController < ApplicationController
     if @board.update_attributes(params[:board])
       redirect_to board_path(@board)
     else
-      redirect_to edit_board_path(@board)
+      render :action => edit
     end
   end
   
