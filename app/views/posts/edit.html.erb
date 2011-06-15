@@ -1,4 +1,4 @@
-<%= form_for @post, :url => post_path(@post), :html => {:method => :put}  do |f| %>
+<%= form_for @post, :url => board_post_path(@board, @post), :html => {:method => :put}  do |f| %>
     <%= f.label :subject, "Subject" %>
     <%= f.text_field :subject %>
 

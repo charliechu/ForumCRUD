@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_filter :find_board, :only => [:board, :show, :edit, :update, :destroy]
+  
   def index
     @boards = Board.all
   end
@@ -24,11 +26,10 @@ class BoardsController < ApplicationController
   
   # 1. Find the data 2. Update to database
   def edit
-    @board = Board.find(params[:id])
+
   end
 
   def update
-    @board = Board.find(params[:id])
     if @board.update_attributes(params[:board])
       redirect_to board_path(@board)
     else
@@ -38,9 +39,14 @@ class BoardsController < ApplicationController
   
   # delete the data  you choice
   def destroy
-    @board = Board.find(params[:id])
     @board.destroy
-
     redirect_to boards_path
+  end
+  
+  #Frequency Use
+  protected 
+  
+  def find_board 
+    @board = Board.find(params[:id])
   end
 end
