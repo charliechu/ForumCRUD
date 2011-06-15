@@ -16,8 +16,7 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to board_path(@board)
     else
-      render :action => new
-      redirect_to new_board_path
+      render :action => "new"
     end
   end
   # By using find method to find the data
@@ -34,7 +33,7 @@ class BoardsController < ApplicationController
     if @board.update_attributes(params[:board])
       redirect_to board_path(@board)
     else
-      render :action => edit
+      render :action => "edit"
     end
   end
   

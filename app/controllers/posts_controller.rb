@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to board_posts_path(@board)
     else
-      redirect_to new_post_path
+      render :action => "new"
     end
   end
   
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     if @post.update_attributes(params[:post])
       redirect_to board_post_path(@board, @post)
     else
-      redirect_to edit_post_path(@post)
+      render :action => "edit"
     end
   end
   

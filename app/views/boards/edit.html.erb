@@ -1,6 +1,6 @@
 <%= form_for @board, :url => board_path(@board), :html => {:method => :put}  do |f| %>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>
-
+    
     <%= f.submit "Update" %>
 <% end %>
