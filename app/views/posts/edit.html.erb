@@ -1,0 +1,10 @@
+<%= form_for @post, :url => post_path(@post), :html => {:method => :put}  do |f| %>
+    <%= f.label :subject, "Subject" %>
+    <%= f.text_field :subject %>
+
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content %>
+
+    <%= f.submit "Update" %>
+<% end %>
+~

@@ -1,0 +1,28 @@
+
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+
+# Can ignore specific files
+.DS_Store
+._*
+Icon?
+
+.bundle
+
+*.swp
+
+*.tmproj
+tmtags
+
+db/*.sql
+db/*.sqlite3
+db/schema.rb
+log/*.log
+
+config/database.yml
+
+# Use wiildcards as well
+*~
+*.swp

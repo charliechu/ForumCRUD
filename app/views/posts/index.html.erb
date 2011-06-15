@@ -1,0 +1,12 @@
+<ul>
+        <% @posts.each do |post| %>
+        <li>
+                <%#= post.subject %>
+                <%#= link_to("Show", board_post_path(1, post)) %>
+                <%#= link_to("Edit", edit_board_post_path(post)) %>
+                <%#= link_to("Delete", post_path(post), :method => :delete) %>
+                </li>
+        <% end %>
+</ul>
+
+<%= link_to("New post", new_board_post_path) %>

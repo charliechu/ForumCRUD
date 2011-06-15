@@ -1,0 +1,13 @@
+<ul>
+	<% @boards.each do |board| %>
+	<li>
+		<%= board.name %>
+
+        <%= link_to("Show", board_path(board)) %>
+        <%= link_to("Edit", edit_board_path(board)) %>
+        <%= link_to("Delete", board_path(board), :method => :delete) %>
+        </li>
+		<% end %>
+</ul>
+
+<%= link_to("New board", new_board_path) %>
