@@ -26,12 +26,12 @@ class PostsController < ApplicationController
   
   # By using find method to find the data
   def show
-    
+    @category_ids = @post.category_ids
   end
   
   # 1. Find the data 2. Update to database
   def edit
-    
+    @category_ids = @post.category_ids
   end
 
   def update

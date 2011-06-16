@@ -1,5 +1,6 @@
 ForumCRUD::Application.routes.draw do
-
+  resources :categories
+  
   resources :boards do
     resources :posts
   end

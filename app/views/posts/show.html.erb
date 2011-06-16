@@ -1,5 +1,9 @@
 <%= @post.subject %>
 <%= simple_format(@post.content) %>
-<%= @post.category %>
+
+<% @post.categories.each do |category| %>
+    <%= category.name %><br>
+<% end %>
+
 
 <p><%= link_to("Back to index", board_posts_path) %></p>

@@ -1,0 +1,6 @@
+<%= form_for @category, :url => category_path(@category), :html => {:method => :put}  do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    
+    <%= f.submit "Update" %>
+<% end %>
