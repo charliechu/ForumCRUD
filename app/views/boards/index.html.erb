@@ -1,13 +1,17 @@
+<p>
+    <%= link_to("Create New board", new_board_path) %> |
+    <%= link_to("Create New Category", new_category_path) %>
+</p>
 <ul>
     <% @boards.each do |board| %>
     <li>
-        <%= board.name %>
-        <%= link_to("Show", board_path(board)) %>
-        <%= link_to("Edit", edit_board_path(board)) %>
-        <%= link_to("Delete", board_path(board), :method => :delete) %>
+        <%= board.name %> Board :
+        <p>
+            <%= link_to("Show", board_path(board)) %> |
+            <%= link_to("Edit", edit_board_path(board)) %> |
+            <%= link_to("Delete", board_path(board), :method => :delete) %>
+        </p>
     </li>
 	<% end %>
 </ul>
 
-<%= link_to("New board", new_board_path) %>
-<%= link_to("New Category", categories_path) %>

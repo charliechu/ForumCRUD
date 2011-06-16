@@ -1,7 +1,10 @@
-<%= @board.name %>
 
 <p>
-    <%= link_to("New Post", new_board_post_path(@board)) %>
+    <%= link_to("New Post", new_board_post_path(@board)) %> |
+    <%= link_to("Back to Home", boards_path) %> 
 </p>
-<p><%= link_to("Old Post", board_posts_path(@board)) %></p>
-<p><%= link_to("Back to Board", boards_path) %></p>
+
+<p>
+    Board Name : <%= @board.name %>
+</p>
+

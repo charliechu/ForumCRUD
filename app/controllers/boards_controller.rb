@@ -22,6 +22,7 @@ class BoardsController < ApplicationController
   # By using find method to find the data
   def show
     @board = Board.find(params[:id])
+    @post = @board.posts.all
   end
   
   # 1. Find the data 2. Update to database

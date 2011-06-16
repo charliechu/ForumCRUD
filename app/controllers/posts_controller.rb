@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   # New a empty Post object
   def new
     @post = Post.new
-    #@post.build_post_detail # I don't know
   end
   
   # sending by new.html.erb, initial a new post object and save it, then redirect to indext page

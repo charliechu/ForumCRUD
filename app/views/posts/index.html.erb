@@ -1,12 +1,17 @@
+<p>
+    <%= link_to("New post", new_board_post_path) %> |
+    <%= link_to("Back to Home", boards_path) %>
+</p>
+
 <ul>
     <% @posts.each do |post| %>
     <li>
-        <%= post.subject %>
-        <%= link_to("Show", board_post_path(@board, post)) %>
-        <%= link_to("Edit", edit_board_post_path(@board, post)) %>
-        <%= link_to("Delete", board_post_path(@board, post), :method => :delete) %>
+        Subject : <%= post.subject %>
+        <p>
+            <%= link_to("Show", board_post_path(@board, post)) %> |
+            <%= link_to("Edit", edit_board_post_path(@board, post)) %> |
+            <%= link_to("Delete", board_post_path(@board, post), :method => :delete) %>
+        </p>
     </li>
     <% end %>
 </ul>
-<p><%= link_to("New post", new_board_post_path) %></p>
-<p><%= link_to("Back to Board", boards_path) %></p>
