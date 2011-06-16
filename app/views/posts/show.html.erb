@@ -1,4 +1,5 @@
 <%= @post.subject %>
 <%= simple_format(@post.content) %>
+<%= @post.category %>
 
 <p><%= link_to("Back to index", board_posts_path) %></p>

@@ -1,9 +1,12 @@
 <%= form_for @post, :url => board_posts_path(@board) do |f| %>
-    <%= f.label :subject, "Subject" %>
-    <%= f.text_field :subject %>
+    <p><%= f.label :subject, "Subject" %>
+    <%= f.text_field :subject %></p>
 
     <%= f.label :content, "Content" %>
-    <%= f.text_area :content %>
-
+    <p><%= f.text_area :content %></p>
+    
+    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]})) %>
+    
     <%= f.submit "Create" %>
 <% end %>
+

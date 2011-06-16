@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # New a empty Post object
   def new
     @post = Post.new
+    #@post.build_post_detail # I don't know
   end
   
   # sending by new.html.erb, initial a new post object and save it, then redirect to indext page
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
   
   # By using find method to find the data
   def show
-
+    
   end
   
   # 1. Find the data 2. Update to database
