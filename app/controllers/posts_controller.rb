@@ -16,8 +16,8 @@ class PostsController < ApplicationController
   # sending by new.html.erb, initial a new post object and save it, then redirect to indext page
   def create
     @post = @board.posts.build(params[:post])
-
     if @post.save
+      @post.category_ids = params[:category_ids]
       redirect_to board_posts_path(@board)
     else
       render :action => "new"
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   
   # 1. Find the data 2. Update to database
   def edit
-
+    
   end
 
   def update
