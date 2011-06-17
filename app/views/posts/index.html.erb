@@ -1,16 +1,18 @@
 <p>
-    <%= link_to("New post", new_board_post_path) %> |
-    <%= link_to("Back to Home", boards_path) %>
+    <%= link_to("新文章", new_board_post_path) %> |
+    <%= link_to("回到討論區", boards_path) %>
 </p>
+
+<h1 style="border:solid khaki 1px; background: oldlace;">文 章 區</h1>
 
 <ul>
     <% @posts.each do |post| %>
     <li>
-        Subject : <%= post.subject %>
+        <%= link_to(post.subject, board_post_path(@board, post)) %>
+        
         <p>
-            <%= link_to("Show", board_post_path(@board, post)) %> |
-            <%= link_to("Edit", edit_board_post_path(@board, post)) %> |
-            <%= link_to("Delete", board_post_path(@board, post), :method => :delete) %>
+            <%= link_to("編輯", edit_board_post_path(@board, post)) %> |
+            <%= link_to("刪除", board_post_path(@board, post), :method => :delete) %>
         </p>
     </li>
     <% end %>

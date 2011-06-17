@@ -1,16 +1,17 @@
 <p>
-    <%= link_to("New category", new_category_path) %> |
-    <%= link_to("Back to Board", boards_path) %>
+    <%= link_to("新增類別", new_category_path) %> |
+    <%= link_to("回到討論區", boards_path) %>
 </p>
+
+<h1 style="border:solid khaki 1px; background: oldlace;"> 所 有 種 類</h1>
 
 <ul>
     <% @categories.each do |category| %>
     <li>
-        Category Name : <%= category.name %>
+        <%= link_to(category.name, category_path(category)) %>
         <p>
-            <%= link_to("Show", category_path(category)) %>
-            <%= link_to("Edit", edit_category_path(category)) %>
-            <%= link_to("Delete", category_path(category), :method => :delete) %>
+            <%= link_to("編輯", edit_category_path(category)) %>
+            <%= link_to("刪除", category_path(category), :method => :delete) %>
         </p>
     </li>
     <% end %>

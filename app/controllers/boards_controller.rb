@@ -14,7 +14,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(params[:board])
     if @board.save
-      redirect_to board_path(@board)
+      redirect_to boards_path
     else
       render :action => "new"
     end
@@ -22,7 +22,6 @@ class BoardsController < ApplicationController
   # By using find method to find the data
   def show
     @board = Board.find(params[:id])
-    @post = @board.posts.all
   end
   
   # 1. Find the data 2. Update to database
@@ -32,7 +31,7 @@ class BoardsController < ApplicationController
 
   def update
     if @board.update_attributes(params[:board])
-      redirect_to board_path(@board)
+      redirect_to boards_path
     else
       render :action => "edit"
     end

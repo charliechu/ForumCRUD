@@ -1,14 +1,18 @@
+
+<h1 style="border:solid khaki 1px; background: oldlace;">編 輯 文 章</h1>
+
 <%= form_for @post, :url => board_post_path(@board, @post), :html => {:method => :put}  do |f| %>
-    <p><%= f.label :subject, "Subject" %>
+    <p><%= f.label :subject, "標題" %>
     <%= f.text_field :subject %></p>
 
-    <%= f.label :content, "Content" %>
+    <%= f.label :content, "內容" %>
     <p><%= f.text_area :content %></p>
-    
+
+
     
     <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[0]), {:include_blank => "Select"}) %><br>
     <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[1]), {:include_blank => "Select"}) %><br>
     <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[2]), {:include_blank => "Select"}) %><br>
 
-    <%= f.submit "Update" %>
+    <%= f.submit "更新" %>
 <% end %>

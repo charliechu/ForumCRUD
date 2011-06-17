@@ -1,15 +1,28 @@
+
+<div>
+    <% if user_signed_in? %>
+        Singed in as  <%= current_user.email %>.Not You?
+        <%= link_to ( "Sign out", destroy_user_session_path ) %>
+    <% else %>
+        <%= link_to( "Sign Up", new_user_registration_path ) %> or <%= link_to( "Sing In", new_user_session_path) %>
+    <% end %>
+</div>
+
+
+<h1 style="border:solid khaki 1px; background: oldlace;">討 論 區</h1>
+
+
 <p>
-    <%= link_to("Create New board", new_board_path) %> |
-    <%= link_to("Create New Category", new_category_path) %>
+    <%= link_to("新增討論區", new_board_path) %> |
+    <%= link_to("新增類別", new_category_path) %>
 </p>
 <ul>
     <% @boards.each do |board| %>
     <li>
-        <%= board.name %> Board :
+        <%= link_to(board.name, board_posts_path(board)) %>
         <p>
-            <%= link_to("Show", board_path(board)) %> |
-            <%= link_to("Edit", edit_board_path(board)) %> |
-            <%= link_to("Delete", board_path(board), :method => :delete) %>
+            <%= link_to("編輯", edit_board_path(board)) %> |
+            <%= link_to("刪除", board_path(board), :method => :delete) %>
         </p>
     </li>
 	<% end %>

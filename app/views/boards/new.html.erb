@@ -1,6 +1,8 @@
+<h1 style="border:solid khaki 1px; background: oldlace;">新 增 討 論 區</h1>
+
 <%= form_for @board, :url => boards_path do |f| %>
-    <%= f.label :name, "Name" %>
+    <%= f.label :name, "名稱" %>
     <%= f.text_field :name %>
     
-    <%= f.submit "Create" %>
+    <%= f.submit "新增" %>
 <% end %>
