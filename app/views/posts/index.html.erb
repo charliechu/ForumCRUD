@@ -14,14 +14,9 @@
     <li style="border:solid khaki 1px; background: oldlace;">
         <%= link_to(post.subject, board_post_path(@board, post)) %>
 
-        
-        <% @users.each do |user| %>
-            <% if user.id == post.user_id %>
-                By <%= user.email%>
-            <% end %>
-        <% end %>
-        
-        <% if post.user == current_user && user_signed_in? %>        
+        <%= post.user.email if post.user.present? %>
+
+        <% if user_signed_in? && post.user == current_user %>        
             <p>
                 <%= link_to("編輯", edit_board_post_path(@board, post)) %> |
                 <%= link_to("刪除", board_post_path(@board, post), :method => :delete) %>
