@@ -3,7 +3,7 @@
     <%= link_to("回到討論區", boards_path) %>
 </p>
 
-<h1 style="border:solid khaki 1px; background: oldlace;">文 章 區</h1>
+<h1 style="border:solid khaki 1px; background: oldlace;"><%= @board.name %> 文 章 區</h1>
 
 <ul>
     <% @posts.each do |post| %>
