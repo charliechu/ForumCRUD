@@ -4,7 +4,7 @@
 <b>內容</b> :<%= simple_format(@post.content) %>
 
 <% @post.categories.each do |category| %>
-    類型:<%= category.name %><br>
+    <b>類型 : </b> <%= category.name %><br>
 <% end %>
 
 
