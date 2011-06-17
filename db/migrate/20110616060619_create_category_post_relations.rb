@@ -3,7 +3,7 @@ class CreateCategoryPostRelations < ActiveRecord::Migration
     create_table :category_post_relations do |t|
       t.integer :category_id
       t.integer :post_id
-
+      t.integer :user_id
       t.timestamps
     end
   end

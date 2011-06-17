@@ -1,21 +1,15 @@
-
-<div>
-    <% if user_signed_in? %>
-        Singed in as  <%= current_user.email %>.Not You?
-        <%= link_to ( "Sign out", destroy_user_session_path ) %>
-    <% else %>
-        <%= link_to( "Sign Up", new_user_registration_path ) %> or <%= link_to( "Sing In", new_user_session_path) %>
-    <% end %>
-</div>
+<%= render :partial => "common/login_info" %>
 
 
 <h1 style="border:solid khaki 1px; background: oldlace;">討 論 區</h1>
 
+<% if current_user %>
+    <p>
+        <%= link_to("新增討論區", new_board_path) %> |
+        <%= link_to("新增類別", new_category_path) %>
+    </p>
+<% end %>
 
-<p>
-    <%= link_to("新增討論區", new_board_path) %> |
-    <%= link_to("新增類別", new_category_path) %>
-</p>
 <ul>
     <% @boards.each do |board| %>
     <li>

@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   # sending by new.html.erb, initial a new post object and save it, then redirect to indext page
   def create
     @post = @board.posts.build(params[:post])
+    @post.user_id = current_user.id
     if @post.save
       @post.category_ids = params[:category_ids]
       redirect_to board_posts_path(@board)
@@ -53,7 +54,7 @@ class PostsController < ApplicationController
   def find_board
     @board = Board.find(params[:board_id])
   end
-  
+   
   def find_post
     @post = Post.find(params[:id])
   end
