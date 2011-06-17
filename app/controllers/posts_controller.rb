@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   # sending by new.html.erb, initial a new post object and save it, then redirect to indext page
   def create
     @post = @board.posts.build(params[:post])
-    @post.user_id = current_user.id
+    @post.user = current_user
     if @post.save
       @post.category_ids = params[:category_ids]
       redirect_to board_posts_path(@board)
