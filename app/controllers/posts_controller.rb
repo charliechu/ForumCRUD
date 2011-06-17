@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :create, :show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :find_board, :only => [:index, :create, :edit, :update, :destroy]
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
-  before_filter :find_category_ids => [:show, :edit]
+  before_filter :find_category_ids, :only => [:show, :edit]
   def index
     # Find post by board and select to all
     @posts = @board.posts.all
@@ -38,6 +38,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(params[:post])
+      @post.category_ids = params[:category_ids]
       redirect_to board_post_path(@board, @post)
     else
       render :action => "edit"
