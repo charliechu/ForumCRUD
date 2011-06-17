@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
-  
+  before_filter :authenticate_user!, :only => [:new, :create, :show, :edit, :update, :destroy]
   before_filter :find_board, :only => [:index, :create, :edit, :update, :destroy]
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_category_ids => [:show, :edit]
   def index
     # Find post by board and select to all
     @posts = @board.posts.all
+    @users =  User.all
   end
   
   # New a empty Post object
@@ -26,12 +28,12 @@ class PostsController < ApplicationController
   
   # By using find method to find the data
   def show
-    @category_ids = @post.category_ids
+    
   end
   
   # 1. Find the data 2. Update to database
   def edit
-    @category_ids = @post.category_ids
+
   end
 
   def update
@@ -50,6 +52,10 @@ class PostsController < ApplicationController
   end 
   
   protected
+  
+  def find_category_ids
+    @category_ids = @post.category_ids
+  end
   
   def find_board
     @board = Board.find(params[:board_id])

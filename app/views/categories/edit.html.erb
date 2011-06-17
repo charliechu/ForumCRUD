@@ -1,6 +1,6 @@
 <%= render :partial => "common/login_info" %>
 
-<h1 style="border:solid khaki 1px; background: oldlace;">編輯類別名稱</h1>
+<h1 style="border:1px solid khaki ; background: oldlace;">編輯類別名稱</h1>
 
 <%= form_for @category, :url => category_path(@category), :html => {:method => :put}  do |f| %>
     <%= f.label :name, "名稱" %>

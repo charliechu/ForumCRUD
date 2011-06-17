@@ -1,12 +1,12 @@
 <%= render :partial => "common/login_info" %>
 
-<p><%= link_to("回到文章區", board_posts_path) %></p>
+<p><%= link_to("回 到 文 章 區", board_posts_path) %></p>
 
 <h1 style="border:solid khaki 1px; background: oldlace;">標題 : <%= @post.subject %></h1>
-<b>內容</b> :<%= simple_format(@post.content) %>
-
-<% @post.categories.each do |category| %>
-    <b>類型 : </b> <%= category.name %><br>
-<% end %>
-
+<p  style="border:solid khaki 1px; background: oldlace;"><b>內容</b> :<%= simple_format(@post.content) %></p>
+<p>
+    <% @post.categories.each do |category| %>
+        <b>類型 : </b> <%= category.name %><br>
+    <% end %>
+</p>
 

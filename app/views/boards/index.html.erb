@@ -5,18 +5,20 @@
 
 <% if current_user %>
     <p>
-        <%= link_to("新增討論區", new_board_path) %> |
-        <%= link_to("新增類別", new_category_path) %>
+        <%= link_to("新 增 討 論 區", new_board_path) %> |
+        <%= link_to("新 增 類 別", new_category_path) %>
     </p>
 <% end %>
 
 <ul>
     <% @boards.each do |board| %>
-    <li>
+    <li style="border:solid khaki 1px; background: oldlace;">
         <%= link_to(board.name, board_posts_path(board)) %>
         <p>
-            <%= link_to("編輯", edit_board_path(board)) %> |
-            <%= link_to("刪除", board_path(board), :method => :delete) %>
+            <% if user_signed_in? %>
+                <%= link_to("編輯", edit_board_path(board)) %> |
+                <%= link_to("刪除", board_path(board), :method => :delete) %>
+            <% end %>
         </p>
     </li>
 	<% end %>
