@@ -1,0 +1,26 @@
+<%= render :partial => "common/login_info" %>
+<p style="border:1px solid red; background: red"><%= flash[:notice]%></p>
+
+<h1 style="border:1px solid khaki; background: oldlace;">討 論 區</h1>
+
+<% if current_user %>
+    <p>
+        <%= link_to("管 理 者 討 論 區", admin_boards_path) %> |
+        <%= link_to("前 台 首 頁", boards_path)%>
+    </p>
+<% end %>
+
+<ul>
+    <% @posts.each do |post| %>
+    <li style="border:1px solid khaki; background: oldlace;">
+        <%= link_to(post.subject, admin_post_path(post)) %>
+        <p>
+            <% if user_signed_in? %>
+                <%= link_to("編輯", edit_admin_post_path(post)) %> |
+                <%= link_to("刪除", admin_post_path(post), :method => :delete) %>
+            <% end %>
+        </p>
+    </li>
+	<% end %>
+</ul>
+

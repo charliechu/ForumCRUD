@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def update
     if @post.update_attributes(params[:post])
       flash[:notice] = "更新成功"
-      redirect_to board_post_path(@board, @post)
+      redirect_to admin_post_path(@board, @post)
     else
       render :action => "edit"
     end
