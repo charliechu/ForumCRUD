@@ -3,23 +3,19 @@
 
 <h1 style="border:1px solid khaki; background: oldlace;">後 台 管 理 討 論 區</h1>
 
-<% if current_user %>
-    <p>
-        <%= link_to("新 增 討 論 區", new_admin_board_path) %> |
-        <%= link_to("後 台 文 章 區", admin_posts_path)%> | 
-        <%= link_to("前 台 首 頁", boards_path)%> |
-    </p>
-<% end %>
+<p>
+    <%= link_to("新 增 討 論 區", new_admin_board_path) %> |
+    <%= link_to("後 台 文 章 區", admin_posts_path)%> | 
+    <%= link_to("前 台 首 頁", boards_path)%> |
+</p>
 
 <ul>
     <% @boards.each do |board| %>
     <li style="border:1px solid khaki; background: oldlace;">
         <%= link_to(board.name, admin_board_path(board)) %>
         <p>
-            <% if user_signed_in? %>
-                <%= link_to("編輯", edit_admin_board_path(board)) %> |
-                <%= link_to("刪除", admin_board_path(board), :method => :delete) %>
-            <% end %>
+            <%= link_to("編輯", edit_admin_board_path(board)) %> |
+            <%= link_to("刪除", admin_board_path(board), :method => :delete) %>         
         </p>
     </li>
 	<% end %>
