@@ -1,6 +1,12 @@
 <div>
     <% if user_signed_in? %>
-        用<%= current_user.email%>登入，是你嗎?
+        用<%= current_user.email%>
+        
+        <% if current_user.is_admin %>
+            管理者
+        <% end %>
+        
+        登入，是你嗎?
 
         <%= link_to ( "登出", destroy_user_session_path ) %>
     <% else %>

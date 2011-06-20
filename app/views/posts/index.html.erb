@@ -13,14 +13,19 @@
     <% @posts.each do |post| %>
     <li style="border:solid khaki 1px; background: oldlace;">
         <%= link_to(post.subject, board_post_path(@board, post)) %>
-
-        <%= post.user.email if post.user.present? %>
-
-        <% if user_signed_in? && post.user == current_user %>        
+         By <%= post.user.email if post.user.present? %>
+        <% if current_user.is_admin %>
             <p>
-                <%= link_to("編輯", edit_board_post_path(@board, post)) %> |
-                <%= link_to("刪除", board_post_path(@board, post), :method => :delete) %>
+                <%= link_to("Edit", edit_board_post_path(@board, post))%>
+                <%= link_to("Delete", board_post_path(@board, post), :method => :delete)%>
             </p>
+        <% else %>
+            <% if user_signed_in? && post.user == current_user %>        
+                <p>
+                    <%= link_to("編輯", edit_board_post_path(@board, post)) %> |
+                    <%= link_to("刪除", board_post_path(@board, post), :method => :delete) %>
+                </p>
+            <% end %>
         <% end %>
     </li>
     <% end %>
