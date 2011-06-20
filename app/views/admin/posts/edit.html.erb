@@ -2,7 +2,7 @@
 
 <h1 style="border:1px solid khaki; background: oldlace;">編 輯 文 章</h1>
 
-<%= form_for @post, :url => board_post_path(@board, @post), :html => {:method => :put}  do |f| %>
+<%= form_for @post, :url => admin_post_path(@post), :html => {:method => :put}  do |f| %>
     <p><%= f.label :subject, "標題" %>
     <%= f.text_field :subject %></p>
 
