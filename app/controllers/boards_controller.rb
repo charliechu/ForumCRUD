@@ -1,5 +1,7 @@
 class BoardsController < ApplicationController
   before_filter :find_board, :only => [:show, :edit, :update, :destroy]
+  before_filter :require_is_admin, :except => [:index, :show]
+  
   def index
     @boards = Board.all
   end

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   before_filter :find_category_ids, :only => [:show, :edit]
   before_filter :require_is_admin_or_poster, :except => [:index, :show]
+  
   def index
     # Find post by board and select to all
     @posts = @board.posts.all
