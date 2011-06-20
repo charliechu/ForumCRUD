@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_filter :find_board, :only => [:index, :create, :edit, :update, :destroy]
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   before_filter :find_category_ids, :only => [:show, :edit]
+  before_filter :require_is_admin_or_poster, :except => [:index, :show]
   def index
     # Find post by board and select to all
     @posts = @board.posts.all
@@ -53,6 +54,13 @@ class PostsController < ApplicationController
   end 
   
   protected
+  
+  def require_is_admin_or_poster
+    unless user_signed_in? && (current_user.is_admin? || @post.user == current_user)
+      flash[:notice] = "login fail"
+      redirect_to root_path
+    end
+  end
   
   def find_category_ids
     @category_ids = @post.category_ids
