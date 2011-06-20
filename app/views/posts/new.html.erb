@@ -7,9 +7,9 @@
     <%= f.label :content, "內容" %>
     <p><%= f.text_area :content %></p>
     
-    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
-    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
-    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
+    <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
+    <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
+    <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
     
         
     

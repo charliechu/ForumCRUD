@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(params[:category])
     if @category.save
+      flash[:notice] = "新增成功"
       redirect_to categories_path
     else
       render :action => "new"
@@ -28,12 +29,12 @@ class CategoriesController < ApplicationController
   end
   
   def update
-
-		if @category.update_attributes(params[:category])
-		  redirect_to categories_path
-		else
-		  render :action => "edit" 
-		end
+    if @category.update_attributes(params[:category])
+      flash[:notice] = "更新成功"
+      redirect_to categories_path
+    else
+      render :action => "edit" 
+    end
   end
   
   def destroy

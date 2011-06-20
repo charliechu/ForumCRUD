@@ -1,19 +1,18 @@
 <%= render :partial => "common/login_info" %>
+<p style="border:1px solid red; background: red"><%= flash[:notice]%></p>
 
-
-
-
-<h1 style="border:solid khaki 1px; background: oldlace;">討 論 區</h1>
+<h1 style="border:1px solid khaki; background: oldlace;">討 論 區</h1>
 
 <% if current_user %>
     <p>
         <%= link_to("新 增 討 論 區", new_admin_board_path) %> |
+        <%= link_to("前台首頁", boards_path)%>
     </p>
 <% end %>
 
 <ul>
     <% @boards.each do |board| %>
-    <li style="border:solid khaki 1px; background: oldlace;">
+    <li style="border:1px solid khaki; background: oldlace;">
         <%= link_to(board.name, admin_board_path(board)) %>
         <p>
             <% if user_signed_in? %>

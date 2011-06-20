@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     @post = @board.posts.build(params[:post])
     @post.user = current_user
     if @post.save
+      flash[:notice] = "新增成功"
       redirect_to board_posts_path(@board)
     else
       render :action => "new"
@@ -37,6 +38,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(params[:post])
+      flash[:notice] = "更新成功"
       redirect_to board_post_path(@board, @post)
     else
       render :action => "edit"

@@ -1,5 +1,5 @@
 <%= render :partial => "common/login_info" %>
-
+<p style="border: 1px solid red; background: red"><%= flash[:notice] %></p>
 <p><%= link_to("回 到 文 章 區", board_posts_path) %></p>
 
 <h1 style="border:solid khaki 1px; background: oldlace;">標題 : <%= @post.subject %></h1>

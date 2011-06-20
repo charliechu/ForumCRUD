@@ -3,7 +3,8 @@
         用<%= current_user.email%>
         
         <% if current_user.is_admin %>
-            管理者
+            管理者 
+            <%= link_to("(後台)", admin_boards_path) %>
         <% end %>
         
         登入，是你嗎?
