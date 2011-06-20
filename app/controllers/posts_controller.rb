@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     @post = @board.posts.build(params[:post])
     @post.user = current_user
     if @post.save
-      @post.category_ids = params[:category_ids]
       redirect_to board_posts_path(@board)
     else
       render :action => "new"
@@ -38,7 +37,6 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(params[:post])
-      @post.category_ids = params[:category_ids]
       redirect_to board_post_path(@board, @post)
     else
       render :action => "edit"

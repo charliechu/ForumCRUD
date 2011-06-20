@@ -11,9 +11,9 @@
 
 
     
-    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[0]), {:include_blank => "Select"}) %><br>
-    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[1]), {:include_blank => "Select"}) %><br>
-    <%= select_tag('category_ids[]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[2]), {:include_blank => "Select"}) %><br>
+    <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[0]), {:include_blank => "Select"}) %><br>
+    <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[1]), {:include_blank => "Select"}) %><br>
+    <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[2]), {:include_blank => "Select"}) %><br>
 
     <%= f.submit "更新" %>
 <% end %>
