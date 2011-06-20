@@ -1,11 +1,11 @@
 <%= render :partial => "common/login_info" %>
 <p style="border:1px solid red; background: red"><%= flash[:notice]%></p>
 
-<h1 style="border:1px solid khaki; background: oldlace;">討 論 區</h1>
+<h1 style="border:1px solid khaki; background: oldlace;">後 台 管 理 文 章 區</h1>
 
 <% if current_user %>
     <p>
-        <%= link_to("管 理 者 討 論 區", admin_boards_path) %> |
+        <%= link_to("後 台 管 理 討 論 區", admin_boards_path) %> |
         <%= link_to("前 台 首 頁", boards_path)%>
     </p>
 <% end %>
