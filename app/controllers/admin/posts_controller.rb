@@ -1,7 +1,6 @@
 class Admin::PostsController < ApplicationController
   before_filter :require_is_admin
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :find_category_ids, :only => [:show, :edit]
   
   def index
@@ -21,6 +20,10 @@ class Admin::PostsController < ApplicationController
     else
       render :action => new
     end
+  end
+  
+  def show
+    
   end
 
   def edit

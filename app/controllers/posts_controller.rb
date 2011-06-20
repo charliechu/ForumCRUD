@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def update
     if @post.update_attributes(params[:post])
       flash[:notice] = "更新成功"
-      redirect_to admin_post_path(@board, @post)
+      redirect_to board_post_path(@board, @post)
     else
       render :action => "edit"
     end
@@ -50,7 +50,6 @@ class PostsController < ApplicationController
   # delete the data  you choice
   def destroy
     @post.destroy
-
     redirect_to board_posts_path(@board)
   end 
   
@@ -58,7 +57,7 @@ class PostsController < ApplicationController
   
   def require_is_admin_or_poster
     unless user_signed_in? && (current_user.is_admin? || @post.user == current_user)
-      flash[:notice] = "login fail"
+      flash[:notice] = "權限不足"
       redirect_to root_path
     end
   end
