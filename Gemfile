@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'devise', '1.1.rc0'
 
+gem "will_paginate", "~> 3.0.pre2"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -31,3 +33,4 @@ gem 'devise', '1.1.rc0'
 # group :development, :test do
 #   gem 'webrat'
 # end
+

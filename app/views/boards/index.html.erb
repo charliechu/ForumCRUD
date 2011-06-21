@@ -13,6 +13,7 @@
     <% @boards.each do |board| %>
     <li style="border:solid khaki 1px; background: oldlace;">
         <%= link_to(board.name, board_posts_path(board)) %>
+        <small>(<%= pluralize board.posts.size, "post" %>)</small>
     </li>
 	<% end %>
 </ul>

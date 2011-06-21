@@ -22,15 +22,16 @@ class BoardsController < ApplicationController
   end
   # By using find method to find the data
   def show
-    @board = Board.find(params[:id])
+    
   end
   
   # 1. Find the data 2. Update to database
   def edit
-
+    
   end
 
   def update
+    
     if @board.update_attributes(params[:board])
       redirect_to boards_path
     else
