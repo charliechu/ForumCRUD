@@ -15,8 +15,10 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(params[:board])
     if @board.save
+      flash[:notice] = "新增成功"
       redirect_to boards_path
     else
+      flash[:notice] = "新增失敗"
       render :action => "new"
     end
   end
@@ -31,10 +33,11 @@ class BoardsController < ApplicationController
   end
 
   def update
-    
     if @board.update_attributes(params[:board])
+      flash[:notice] = "更新成功"
       redirect_to boards_path
     else
+      flash[:notice] = "更新失敗"
       render :action => "edit"
     end
   end
@@ -42,6 +45,7 @@ class BoardsController < ApplicationController
   # delete the data  you choice
   def destroy
     @board.destroy
+    flash[:notice] = "刪除失敗"
     redirect_to boards_path
   end
   

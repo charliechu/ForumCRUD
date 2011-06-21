@@ -1,10 +1,6 @@
-<%= render :partial => "common/login_info" %>
-
-<h1 style="border:solid khaki 1px; background: oldlace;">編 輯 討 論 區 名 稱</h1>
+<h1>編輯討論區名稱</h1>
 
 <%= form_for @board, :url => board_path(@board), :html => {:method => :put}  do |f| %>
-    <%= f.label :name, "名 稱  " %>
-    <%= f.text_field :name %>
-    
+    <%= render :partial => "common/form_board", :locals => { :f => f }%>
     <%= f.submit "更新" %>
 <% end %>

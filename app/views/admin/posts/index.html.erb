@@ -1,18 +1,16 @@
-<%= render :partial => "common/login_info" %>
-<p style="border:1px solid red; background: red"><%= flash[:notice]%></p>
-
-<h1 style="border:1px solid khaki; background: oldlace;">後 台 管 理 文 章 區</h1>
-
-
+<h1>後台管理文章區</h1>
 <p>
-    <%= link_to("後 台 管 理 討 論 區", admin_boards_path) %> |
-    <%= link_to("前 台 首 頁", boards_path)%>
+    <%= link_to("後台管理討論區", admin_boards_path) %> |
+    <%= link_to("前台首頁", boards_path)%>
 </p>
 
 <ul>
     <% @posts.each do |post| %>
-    <li style="border:1px solid khaki; background: oldlace;">
-        <%= link_to(post.subject, admin_post_path(post)) %>
+    <li>
+        <b>
+            <%= link_to(post.subject, admin_post_path(post)) %>
+            By <%= post.user.email if post.user.present? %>
+        </b>
         <p>
             <%= link_to("編輯", edit_admin_post_path(post)) %> |
             <%= link_to("刪除", admin_post_path(post), :method => :delete) %>

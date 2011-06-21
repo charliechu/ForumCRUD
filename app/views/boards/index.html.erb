@@ -1,20 +1,22 @@
-<%= render :partial => "common/login_info" %>
-<p style="border:1px solid red; background: red"><%= flash[:notice]%></p>
-
-<h1 style="border:solid khaki 1px; background: oldlace;">討 論 區</h1>
+<h1>討論區</h1>
 
 <% if current_user %>
     <p>
-        <%= link_to("新 增 類 別", new_category_path) %>
+        <%= link_to("新增類別", new_category_path) %>
     </p>
 <% end %>
 
 <ul>
     <% @boards.each do |board| %>
-    <li style="border:solid khaki 1px; background: oldlace;">
-        <%= link_to(board.name, board_posts_path(board)) %>
-        <small>(<%= pluralize board.posts.size, "post" %>)</small>
+    <li>
+        <b>
+            <%= link_to(board.name, board_posts_path(board)) %>
+            <!--each board should show its posts count.!-->
+            <small>(<%= pluralize board.posts.size, "post" %>)</small>
+        </b>
     </li>
 	<% end %>
 </ul>
+
+
 

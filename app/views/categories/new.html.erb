@@ -1,10 +1,6 @@
-<%= render :partial => "common/login_info" %>
-
-<h1 style="border:1px solid khaki; background: oldlace;">新 增 類 別</h1>
+<h1>新增類別</h1>
 
 <%= form_for @category, :url => categories_path do |f| %>
-    <%= f.label :name, "名稱"%>
-    <%= f.text_field :name %>
-    
+    <%= render :partial => "common/form_category", :locals => { :f => f}%>
     <%= f.submit "新增" %>
 <% end %>

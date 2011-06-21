@@ -1,21 +1,21 @@
-<%= render :partial => "common/login_info" %>
-<p style="border:1px solid red; background: red;"><%= flash[:notice]%></p>
-
 <p>
     <% if current_user %>
-            <%= link_to("新 文 章", new_board_post_path) %> |
+            <%= link_to("新文章", new_board_post_path) %> |
     <% end %>
-
-    <%= link_to("回 到 討 論 區", boards_path) %>
+    <%= link_to("最新更新", board_posts_path(:recent => 1))%> ｜
+    <%= link_to("過期文章", board_posts_path(:rectent => 0))%> ｜
+    <%= link_to("回到討論區", boards_path) %>
+    
 </p>
 
-<h1 style="border:1px solid khaki; background: oldlace;"><%= @board.name %> 文 章 區</h1>
+<h1><%= @board.name %>文章區</h1>
 
 <ul>
     <% @posts.each do |post| %>
-    <li style="border:solid khaki 1px; background: oldlace;">
-        <%= link_to(post.subject, board_post_path(@board, post)) %>
-         By <%= post.user.email if post.user.present? %>
+    <li>
+        <b><%= link_to(post.subject, board_post_path(@board, post)) %>
+         By <%= post.user.email if post.user.present? %></b>
+         
         <% if user_signed_in? && (current_user.is_admin || post.user == current_user) %>
             <p>
                 <%= link_to("編輯", edit_board_post_path(@board, post))%>
@@ -25,3 +25,5 @@
     </li>
     <% end %>
 </ul>
+
+<%= will_paginate(@posts) %>

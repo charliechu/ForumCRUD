@@ -1,18 +1,9 @@
-<%= render :partial => "common/login_info" %>
-
 <%= form_for @post, :url => admin_posts_path(@post) do |f| %>
-    <p><%= f.label :subject, "標題" %>
-    <%= f.text_field :subject %></p>
-
-    <%= f.label :content, "內容" %>
-    <p><%= f.text_area :content %></p>
+    <%= render :partial => "common/form_post", :locals => {:f => f} %>
     
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
-    
-        
-    
     <%= f.submit "新增" %>
 <% end %>
 

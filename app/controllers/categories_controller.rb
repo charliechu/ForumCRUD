@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
       flash[:notice] = "新增成功"
       redirect_to categories_path
     else
+      flash[:notice] = "新增失敗"
       render :action => "new"
     end 
   end
@@ -38,8 +39,8 @@ class CategoriesController < ApplicationController
   end
   
   def destroy
-
     @category.destroy
+    flash[:notice] = "刪除成功"
     redirect_to categories_path
   end
   

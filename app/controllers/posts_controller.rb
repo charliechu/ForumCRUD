@@ -6,9 +6,11 @@ class PostsController < ApplicationController
   before_filter :require_is_admin_or_poster, :except => [:index, :show]
   
   def index
-    # Find post by board and select to all
-    @posts = @board.posts.all
-    @users =  User.all
+    if params[:recent] == "1"
+      @posts = @board.posts.recent.paginate(:page => params[:page], :per_page => 5)
+    else
+      @posts = @board.posts.newest.paginate(:page => params[:page], :per_page => 5)
+    end
   end
   
   # New a empty Post object
@@ -24,6 +26,7 @@ class PostsController < ApplicationController
       flash[:notice] = "新增成功"
       redirect_to board_posts_path(@board)
     else
+      flash[:notice] = "新增失敗"
       render :action => "new"
     end
   end
@@ -43,6 +46,7 @@ class PostsController < ApplicationController
       flash[:notice] = "更新成功"
       redirect_to board_post_path(@board, @post)
     else
+      flash[:notice] = "更新失敗"
       render :action => "edit"
     end
   end
@@ -50,6 +54,7 @@ class PostsController < ApplicationController
   # delete the data  you choice
   def destroy
     @post.destroy
+    flash[:notice] = "刪除成功"
     redirect_to board_posts_path(@board)
   end 
   

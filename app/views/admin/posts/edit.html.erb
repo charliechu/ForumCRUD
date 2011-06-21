@@ -1,16 +1,7 @@
-<%= render :partial => "common/login_info" %>
+<h1>編輯文章</h1>
 
-<h1 style="border:1px solid khaki; background: oldlace;">編 輯 文 章</h1>
-
-<%= form_for @post, :url => admin_post_path(@post), :html => {:method => :put}  do |f| %>
-    <p><%= f.label :subject, "標題" %>
-    <%= f.text_field :subject %></p>
-
-    <%= f.label :content, "內容" %>
-    <p><%= f.text_area :content %></p>
-
-
-    
+<%= form_for @post, :url => admin_post_path(@post), :html => {:method => :put}  do |f| %>    
+    <%= render :partial => "common/form_post", :locals => {:f => f} %>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[0]), {:include_blank => "Select"}) %><br>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[1]), {:include_blank => "Select"}) %><br>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}, @category_ids[2]), {:include_blank => "Select"}) %><br>

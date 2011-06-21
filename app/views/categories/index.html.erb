@@ -1,18 +1,15 @@
-<%=render :partial => "common/login_info" %>
-<p style="border:1px solid red; background: red"><%= flash[:notice]%></p>
-
 <p>
     <% if current_user %>
-        <%= link_to("新 增 類 別", new_category_path) %> |
+        <%= link_to("新增類別", new_category_path) %> |
     <% end %>
-    <%= link_to("回 到 討 論 區", boards_path) %>
+    <%= link_to("回到討論區", boards_path) %>
 </p>
-<h1 style="border:1px solid khaki; background: oldlace;"> 所 有 種 類</h1>
+<h1> 所有種類</h1>
 
 <ul>
     <% @categories.each do |category| %>
-    <li style="border:solid khaki 1px; background: oldlace;">
-        <%= link_to(category.name, category_path(category)) %>
+    <li>
+        <b><%= category.name%></b>
         <p>
             <%= link_to("編輯", edit_category_path(category)) %>
             <%= link_to("刪除", category_path(category), :method => :delete) %>
