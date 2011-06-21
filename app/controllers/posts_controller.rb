@@ -3,9 +3,10 @@ class PostsController < ApplicationController
   before_filter :find_board, :only => [:index, :create, :edit, :update, :destroy]
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   before_filter :find_category_ids, :only => [:show, :edit]
-  before_filter :require_is_admin_or_poster, :except => [:index, :show]
+  before_filter :require_is_admin_or_poster, :only => [:edit, :update, :destroy]
   
   def index
+    @users = User.all
     if params[:recent] == "1"
       @posts = @board.posts.recent.paginate(:page => params[:page], :per_page => 5)
     else

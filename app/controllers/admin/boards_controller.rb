@@ -3,7 +3,7 @@ class Admin::BoardsController < ApplicationController
   before_filter :find_board, :only => [:show, :edit, :update, :destroy]
     
   def index
-    flash[:notice] = "管理者您好！"
+    flash[:notice] = "管理者您好"
     @boards = Board.all
   end
   

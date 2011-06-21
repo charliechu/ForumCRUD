@@ -5,7 +5,13 @@ class Admin::PostsController < ApplicationController
   
   def index
     flash[:notice] = "管理者您好"
-    @posts = Post.all
+    #@posts = Post.all
+    if params[:recent] == "1"
+      @posts = Post.recent.paginate(:page => params[:page], :per_page => 5)
+    else
+      @posts = Post.newest.paginate(:page => params[:page], :per_page => 5)
+    end
+    
   end
   
   def new

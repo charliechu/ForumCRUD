@@ -1,6 +1,8 @@
 <h1>後台管理文章區</h1>
 <p>
     <%= link_to("後台管理討論區", admin_boards_path) %> |
+    <%= link_to("最新更新", admin_posts_path(:recent => 1))%> ｜
+    <%= link_to("過期文章", admin_posts_path(:recent => 0))%> ｜
     <%= link_to("前台首頁", boards_path)%>
 </p>
 
@@ -19,3 +21,4 @@
 	<% end %>
 </ul>
 
+<%= will_paginate(@posts) %>

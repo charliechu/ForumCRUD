@@ -3,7 +3,7 @@
             <%= link_to("新文章", new_board_post_path) %> |
     <% end %>
     <%= link_to("最新更新", board_posts_path(:recent => 1))%> ｜
-    <%= link_to("過期文章", board_posts_path(:rectent => 0))%> ｜
+    <%= link_to("過期文章", board_posts_path(:recent => 0))%> ｜
     <%= link_to("回到討論區", boards_path) %>
     
 </p>
