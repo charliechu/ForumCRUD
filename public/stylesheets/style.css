@@ -20,15 +20,14 @@ h1{
 	background: red;
 }
 
-b {
+b{
 	border:1px solid khaki; 
 	background: oldlace;	
 }
 
-p { 
+p{ 
 	line-height: 150%;
 	letter-spacing: 2px;
-
 }
 
 
