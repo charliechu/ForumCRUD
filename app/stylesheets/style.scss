@@ -7,34 +7,34 @@ body{
 	margin: 25;
 }
 
-a {
+a{
 	&:link, &:active, &:visited {
 		color: #CD0000; 
 	} 
 }
 
-h1 {
+h1{
 	letter-spacing: 3px;
 	border: 1px solid khaki;
 	background: oldlace; 
 }
 
-#flash {
+#flash{
 	border: 1px solid red;
 	background: red; 
 }
 
-b {
+b{
 	border: 1px solid khaki;
 	background: oldlace; 
 }
 
-p {
+p{
 	line-height: 150%;
 	letter-spacing: 2px;
 	margin: 10 10 0 0;
 }
 
-li {
+li{
 	margin: 10 10 0 0
 }
