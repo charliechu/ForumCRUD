@@ -4,25 +4,26 @@ namespace :dev do
   task :build => ["tmp:clear", "log:clear", "db:drop", "db:create", "db:migrate", "db:seed"]
   
   desc "Fake Data"
-  task :fake => :environment do
+  task :fake => ["db:drop", "db:create", "db:migrate", "dev:fakeData", "db:seed"]
+  
+  
+  desc "Fake Data"
+  task :fakeData => :environment do
       require 'populator'
       require 'faker'
       [Board, Post, User].each(&:delete_all)
-      
-      #User.populate 10 do |user|
-      #  user.email = Faker::Internet.email
-      #  user.password = "123456"
-      #end
       
       Board.populate (10) do |board|
         board.name = Populator.words(1..5).titleize
         board.created_at = 2.years.ago..Time.now
       end
       
-      User.populate (10) do |user|
+      10.times.each do
         user = User.create!(:email => Faker::Internet.email, :password => "123456")
         Post.populate (1..5) do |post|
-          random_board_id = rand(10)
+          board_ids = Board.select(:id)
+          range = board_ids.size
+          random_board_id = board_ids[rand(range)]
           post.board_id = random_board_id
           post.subject = Populator.words(1..5).titleize
           post.content = Populator.sentences(2..10)
