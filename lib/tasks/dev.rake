@@ -3,11 +3,38 @@ namespace :dev do
   desc "Rebuild System"
   task :build => ["tmp:clear", "log:clear", "db:drop", "db:create", "db:migrate", "db:seed"]
   
+  desc "Fake Data"
+  task :fake => :environment do
+      require 'populator'
+      require 'faker'
+      [Board, Post, User].each(&:delete_all)
+      
+      #User.populate 10 do |user|
+      #  user.email = Faker::Internet.email
+      #  user.password = "123456"
+      #end
+      
+      Board.populate 10 do |board|
+        board.name = Populator.words(1..5).titleize
+        User.populate 10 do |user|
+          user.email = Faker::Internet.email
+          user.password = 123456 
+          Post.populate 1..5 do |post|
+            post.board_id = board.id
+            post.subject = Populator.words(1..5).titleize
+            post.content = Populator.sentences(2..10)
+            post.create_at = 1.years.ago..Time.now
+            post.user_id = user.id
+          end
+        end
+      end
+  end  
+  
   desc "Each board should show its posts count"
   task :reset_post_counter => :environment do
-    #Board.reset_column_information
-    @boards = Board.all
-    @boards.each do |board|
+      #Board.reset_column_information
+      @boards = Board.all
+      @boards.each do |board|
       Board.reset_counters board.id, :posts
       puts "#{board.name}, OK"
     end
