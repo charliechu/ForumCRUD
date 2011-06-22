@@ -25,6 +25,9 @@ puts "Seed Data here!"
 #  end
 #end
 
-User.create(:email => "charliechu@techbang.com.tw", :password => "123456", :created_at => "2011-06-17 01:59:27" ,:is_admin => true )
+@admin = User.create(:email => "charliechu@techbang.com.tw", :password => "123456", :created_at => "2011-06-17 01:59:27")
+@admin.is_admin = true
+@admin.save
+
 User.create(:email => "1949@cmh.com.tw", :password => "654321", :created_at => "2011-06-17 07:09:59", :is_admin => false )
 puts "User Create"
