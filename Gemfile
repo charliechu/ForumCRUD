@@ -14,6 +14,7 @@ gem "will_paginate", "~> 3.0.pre2"
 
 gem 'populator'
 gem 'faker'
+gem "paperclip"
 
 gem 'compass'
 gem 'haml'
