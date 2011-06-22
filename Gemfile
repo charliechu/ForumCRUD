@@ -12,6 +12,9 @@ gem 'devise', '1.1.rc0'
 gem 'rake', '0.8.7'
 gem "will_paginate", "~> 3.0.pre2"
 
+gem 'compass'
+gem 'haml'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

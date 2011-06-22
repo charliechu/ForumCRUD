@@ -1,0 +1,53 @@
+/* line 1, ../../../app/stylesheets/style.scss */
+
+body{
+	font-family: Helvetica, Geneva, Arial, sans-serif;
+	font-size: small;
+	font-color: #000;
+	background-color: #fff; 
+	padding: 25;
+	margin: 25;
+}
+
+/* line 8, ../../../app/stylesheets/style.scss */
+
+a {
+  &:link, &:active, &:visited {
+    color: #CD0000; 
+	} 
+}
+
+/* line 11, ../../../app/stylesheets/style.scss */
+
+h1 {
+  letter-spacing: 3px;
+  border: 1px solid khaki;
+  background: oldlace; 
+}
+
+/* line 16, ../../../app/stylesheets/style.scss */
+
+#flash {
+  border: 1px solid red;
+  background: red; 
+}
+
+/* line 20, ../../../app/stylesheets/style.scss */
+
+b {
+  border: 1px solid khaki;
+  background: oldlace; 
+}
+
+/* line 24, ../../../app/stylesheets/style.scss */
+
+p {
+  line-height: 150%;
+  letter-spacing: 2px;
+	margin: 10 10 0 0;
+}
+
+li {
+	margin: 10 10 0 0
+	
+}

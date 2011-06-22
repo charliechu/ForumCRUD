@@ -1,33 +1,51 @@
-body{
-	font-family: Helvetica, Geneva, Arial, sans-serif;
-	font-size: small;
-	font-color: #000;
-	background-color: #fff;
+/* line 1, ../../../app/stylesheets/style.scss */
+/* line 3, ../../app/stylesheets/style.scss */
+body {
+  font-family: Helvetica, Geneva, Arial, sans-serif;
+  font-size: small;
+  font-color: #000;
+  background-color: #fff;
+  padding: 25;
+  margin: 25;
 }
 
-a:link, a:active, a:visited{
-	color: #CD0000;
+/* line 8, ../../../app/stylesheets/style.scss */
+/* line 15, ../../app/stylesheets/style.scss */
+a:link, a:active, a:visited {
+  color: #CD0000;
 }
 
-h1{
-	letter-spacing: 3px;
-	border:1px solid khaki; 
-	background: oldlace;
+/* line 11, ../../../app/stylesheets/style.scss */
+/* line 22, ../../app/stylesheets/style.scss */
+h1 {
+  letter-spacing: 3px;
+  border: 1px solid khaki;
+  background: oldlace;
 }
 
-#flash{
-	border:1px solid red;
-	background: red;
+/* line 16, ../../../app/stylesheets/style.scss */
+/* line 30, ../../app/stylesheets/style.scss */
+#flash {
+  border: 1px solid red;
+  background: red;
 }
 
-b{
-	border:1px solid khaki; 
-	background: oldlace;	
+/* line 20, ../../../app/stylesheets/style.scss */
+/* line 37, ../../app/stylesheets/style.scss */
+b {
+  border: 1px solid khaki;
+  background: oldlace;
 }
 
-p{ 
-	line-height: 150%;
-	letter-spacing: 2px;
+/* line 24, ../../../app/stylesheets/style.scss */
+/* line 44, ../../app/stylesheets/style.scss */
+p {
+  line-height: 150%;
+  letter-spacing: 2px;
+  margin: 10 10 0 0;
 }
 
-
+/* line 50, ../../app/stylesheets/style.scss */
+li {
+  margin: 5 5 0 0;
+}
