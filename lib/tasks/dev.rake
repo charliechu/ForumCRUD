@@ -5,7 +5,11 @@ namespace :dev do
   
   desc "Fake Data"
   task :fake => :environment do
-      [Board, Post, User].each(&:delete_all)
+      [Board, Post, Category, User].each(&:delete_all)
+      
+      Category.populate(10) do |category|
+        category.name = Populator.words(1..5).titleize
+      end
       
       Board.populate(10) do |board|
         board.name = Populator.words(1..5).titleize
