@@ -14,16 +14,15 @@ namespace :dev do
       #  user.password = "123456"
       #end
       
-      Board.populate 10 do |board|
+      Board.populate (10) do |board|
         board.name = Populator.words(1..5).titleize
-        User.populate 10 do |user|
-          user.email = Faker::Internet.email
-          user.password = 123456 
-          Post.populate 1..5 do |post|
+        User.populate (10) do |user|
+          user = User.create!(:email => Faker::Internet.email, :password => "123456")
+          Post.populate (1..5) do |post|
             post.board_id = board.id
             post.subject = Populator.words(1..5).titleize
             post.content = Populator.sentences(2..10)
-            post.create_at = 1.years.ago..Time.now
+            post.created_at = 1.years.ago..Time.now
             post.user_id = user.id
           end
         end
