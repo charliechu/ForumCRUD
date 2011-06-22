@@ -1,4 +1,3 @@
-/* line 1, ../../app/stylesheets/style.scss */
 body {
   font-family: Helvetica, Geneva, Arial, sans-serif;
   font-size: small;
@@ -8,38 +7,32 @@ body {
   margin: 25;
 }
 
-/* line 11, ../../app/stylesheets/style.scss */
 a:link, a:active, a:visited {
   color: #CD0000;
 }
 
-/* line 16, ../../app/stylesheets/style.scss */
 h1 {
   letter-spacing: 3px;
   border: 1px solid khaki;
   background: oldlace;
 }
 
-/* line 22, ../../app/stylesheets/style.scss */
 #flash {
   border: 1px solid red;
   background: red;
 }
 
-/* line 27, ../../app/stylesheets/style.scss */
 b {
   border: 1px solid khaki;
   background: oldlace;
 }
 
-/* line 32, ../../app/stylesheets/style.scss */
 p {
   line-height: 150%;
   letter-spacing: 2px;
   margin: 10 10 0 0;
 }
 
-/* line 38, ../../app/stylesheets/style.scss */
 li {
   margin: 10 10 0 0;
 }

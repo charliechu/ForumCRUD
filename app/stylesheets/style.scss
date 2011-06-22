@@ -8,34 +8,33 @@ body{
 }
 
 a {
-  &:link, &:active, &:visited {
-    color: #CD0000; 
+	&:link, &:active, &:visited {
+		color: #CD0000; 
 	} 
 }
 
 h1 {
-  letter-spacing: 3px;
-  border: 1px solid khaki;
-  background: oldlace; 
+	letter-spacing: 3px;
+	border: 1px solid khaki;
+	background: oldlace; 
 }
 
 #flash {
-  border: 1px solid red;
-  background: red; 
+	border: 1px solid red;
+	background: red; 
 }
 
 b {
-  border: 1px solid khaki;
-  background: oldlace; 
+	border: 1px solid khaki;
+	background: oldlace; 
 }
 
 p {
-  line-height: 150%;
-  letter-spacing: 2px;
+	line-height: 150%;
+	letter-spacing: 2px;
 	margin: 10 10 0 0;
 }
 
 li {
 	margin: 10 10 0 0
-	
 }
