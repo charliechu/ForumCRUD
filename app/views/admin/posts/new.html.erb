@@ -4,6 +4,7 @@
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
     <%= select_tag('post[category_ids][]', options_for_select(Category.all.map{ |c| [c.name, c.id]}), {:include_blank => "Select"}) %><br>
+    <%= f.file_field :photo %>
     <%= f.submit "新增" %>
 <% end %>
 

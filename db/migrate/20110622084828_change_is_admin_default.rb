@@ -4,6 +4,6 @@ class ChangeIsAdminDefault < ActiveRecord::Migration
   end
 
   def self.down
-    change_column_default(User, :is_admin, nil)
+    change_column_default(User, :is_admin,nil)
   end
 end

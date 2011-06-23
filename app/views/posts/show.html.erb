@@ -1,7 +1,10 @@
 <p><%= link_to("回到文章區", board_posts_path) %></p>
 
-<h1>標題 : <%= @post.subject %></h1>
-<%= image_tag @post.photo.url(:medium) %>
+<h1>標題:<%= @post.subject %></h1>
+
+<% if @post.photo_file_name? %>
+    <%= image_tag @post.photo.url(:medium) %>
+<% end %>
 
 <p><b>內容</b> :<%= simple_format(@post.content) %></p>
 <p>
